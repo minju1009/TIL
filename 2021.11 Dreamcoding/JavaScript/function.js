@@ -105,4 +105,83 @@ const print = function (){
     console.log('print');
 };
 print();
+const printAgain = print;
+printAgain();
+const sumAgain = sum;
+console.log(sumAgain(1,3));
+
+// 2. Callback function using function expression
+function randomQuiz(answer, printYes, printNo) {
+    if(answer === 'love you'){
+        printYes();
+    } else {
+        printNo();
+    }
+};
+const printYes = function () {
+    console.log("yes!");
+};
+
+// named function
+// better debuffing in debugger's stack traces
+// recursions
+
+const printNo = function print() {
+    console.log("no!");
+};
+
+randomQuiz('wrong', printYes, printNo);
+randomQuiz('love you', printYes, printNo);
+
+// Arrow function
+// always anonymous
+const simplePrint = function () {
+    console.log("simplePrint!");
+};
+
+const simplePrint1 = () => console.log('simplePrint!');
+const add = (a, b) => a + b;
+
+
+const simpleMultiply = (a, b) => {
+    return a * b;
+};
+
+// IIFE : Immediately Invoked Function Expression
+// 함수의 선언을 괄호로 묶은 다음 똑같이 () 더해주면 바로 함수 만들면서 호출까지 가능하다.
+
+(function hello() {
+    console.log('IIFE');
+})();
+
+
+
+//  Fun quiz time
+// function calculate(command, a, b)
+// command: add, subtract, divide, multiply, remainder
+
+
+function calculate(command, a, b){
+    if(command == "add"){
+        return a + b;
+    }
+    else if(command == "subtract"){
+        return a - b;
+    }
+    else if(command === "divide"){
+        return a / b;
+    }
+    else if(command === "multiply"){
+        return a * b;
+    }
+    else if(command === "remainder"){
+        return a % b ;
+    }
+    else {
+        console.log("write between + - / * %");
+    };
+};
+
+
+
 
