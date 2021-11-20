@@ -113,6 +113,10 @@ class Triangle extends Shape {
     getArea() {
         return (this.width * this.height) / 2;
     }
+
+    toString() {
+        return 'Triangle';
+    }
 }
 
 const rectangle = new Rectangle(20,20,'blue');
@@ -120,4 +124,14 @@ rectangle.draw();
 console.log(rectangle.getArea());
 const triangle = new Triangle(20,20,'red');
 console.log(triangle.getArea());
+
+// 6. Class checking: instanceOf 왼쪽에 있는 오브젝트가 오른쪽에 있는 클래스를 통해 만들어진게 맞는지 확인하는 것
+console.log(rectangle instanceof Rectangle); // True
+console.log(triangle instanceof Rectangle); // false
+console.log(triangle instanceof Triangle); // true
+console.log(triangle instanceof Shape); // true
+console.log(triangle instanceof Object); // true
+console.log(triangle.toString());
+
+
 
