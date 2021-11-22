@@ -63,4 +63,29 @@ console.log(fruits);
 
 fruits.splice(1);
 console.log(fruits);
+fruits.splice(1,1);
+console.log(fruits);
+
+// combine two arrays
+const fruits2 = ['🍐', '🍉'];
+const newFruit = fruits.concat(fruits2);
+console.log(newFruit);
+
+// 5. Searching
+// find the index
+console.clear();
+console.log(fruits);
+
+// indexOF
+console.log(fruits.indexOf('🍉')); // 배열 안에 없으면 -1이 출력됨
+
+// includes
+console.log(fruits.includes('🍉')); // True or False 출력됨
+
+// lastIndexOf
+console.clear();
+fruits.push('🍑');
+console.log(fruits);
+console.log(fruits.indexOf('🍑'));
+console.log(fruits.lastIndexOf('🍑'));
   
