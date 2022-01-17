@@ -1,0 +1,11 @@
+body {
+    margin: auto;
+}
+
+h1{
+    display: block;
+    margin: 2px auto;
+    color: tomato;
+    text-shadow: 3px 3px 2px turquoise;
+}
+

@@ -1,6 +1,5 @@
 const body = document.querySelector('body');
 const fullScreenWidth = window.screen.width;
-console.dir(body);
 
 function handleResize() {
     const currentWidth = window.innerWidth;

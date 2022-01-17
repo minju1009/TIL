@@ -1,4 +1,3 @@
-const currentWidth = window.innerWidth;
 const fullScreenWidth = window.screen.width;
 const body = document.querySelector('body');
 
@@ -14,5 +13,3 @@ function handleResize(){
 }
 
 window.addEventListener("resize", handleResize);
-
-console.log(currentWidth, body.style.backgroundColor);
