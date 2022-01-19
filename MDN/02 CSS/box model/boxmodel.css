@@ -1,0 +1,22 @@
+p, ul{
+    border: 1px solid indigo;
+    padding: 0.5em;
+}
+
+li, span{
+    border: 1px solid blue;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    
+}
+
+span{
+    display: block;
+}
+
+li{
+    margin: 2px;
+}
