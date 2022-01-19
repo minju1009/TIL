@@ -1,0 +1,64 @@
+h1{
+    color:red;
+}
+
+p, li{
+    color: green;
+    
+}
+
+p::selection{
+    color: white;
+    background-color: greenyellow;
+    text-shadow: #FC0 1px 0 10px;
+}
+
+li {
+    list-style-type: none;
+}
+
+li.special,
+span.special{
+    color: orange;
+    font-weight: bold;
+}
+
+li em{
+    color: rebeccapurple;
+}
+
+h1 + p {
+    font-size: 200%;
+}
+
+a:link{
+    color: pink;
+}
+
+a:visited{
+    color: green;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.outer {
+    border: 5px solid black;
+  }
+  
+  .box {
+    padding: 10px;
+    width: calc(90% - 30px);
+    background-color: rebeccapurple;
+    color: white;
+  }
+
+.test::before {
+        content: "This should show before the other content."
+}
+
+.test::after {
+    content: "->";
+}
+
