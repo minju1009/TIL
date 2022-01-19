@@ -10,7 +10,7 @@
 
 여기서의 width의 의미는 content 박스 만의 의미! 그런데 이렇게 하면 실제로 우리에게 보여지는 width는 content + padding*2 + border*2가 된다. 그렇기 때문에 실제 넓이를 가늠하기 가 어렵다.
 
-![Untitled](The%20box%20model%E2%86%92%20block,%20inline,%20inline-block%20a91d27d9b9794cbcb190cc18cae34187/Untitled.png)
+<img src:"img/untitled1
 
 1. alternative CSS box model
 
@@ -18,7 +18,7 @@
 
 1. 그래서!! 대부분 box-sizing을 border-box로 지정하고 작업을 한다.
 
-![Untitled](The%20box%20model%E2%86%92%20block,%20inline,%20inline-block%20a91d27d9b9794cbcb190cc18cae34187/Untitled%201.png)
+<img src: "MDN/02 CSS/box model/The box model→ block, inline, inline-block/Untitled 1.png">
 
 1. **margin collapsing**
 
