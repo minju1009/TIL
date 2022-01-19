@@ -10,7 +10,9 @@
 
 여기서의 width의 의미는 content 박스 만의 의미! 그런데 이렇게 하면 실제로 우리에게 보여지는 width는 content + padding*2 + border*2가 된다. 그렇기 때문에 실제 넓이를 가늠하기 가 어렵다.
 
-<img src:"img/untitled1
+![This is an image](MDN/02 CSS/box model/The box model→ block, inline, inline-block/Untitled 1.png)
+
+Untitled 1.png
 
 1. alternative CSS box model
 
@@ -27,7 +29,7 @@ f you have two elements whose margins touch, and both margins are positive, th**
 → 이 경우 위에 있는 애의 margin과 밑에 있는 애의 margin이 서로 닿는다. 그러면 margin이 더 큰 애가 적용된다. 만약 50px, 30px이라면 50px이 적용되기 때문에 밑에 애의 margin이 0이 되도 전체 보기에는 달라지지 않는 것이다.
 
 ![Untitled](The%20box%20model%E2%86%92%20block,%20inline,%20inline-block%20a91d27d9b9794cbcb190cc18cae34187/Untitled%202.png)
-
+Untitled 2.png
 1. box model and inline boxes
 
 1) <p>안에 <span>을 사용했을때. 
