@@ -1,10 +1,12 @@
 p, ul{
     border: 1px solid indigo;
     padding: 0.5em;
+    text-decoration: overline;
 }
 
 li, span{
     border: 1px solid blue;
+    text-shadow: 1px 1px 2px red, 2px 4px 2px greenyellow;
 }
 
 ul{
@@ -20,3 +22,4 @@ span{
 li{
     margin: 2px;
 }
+
