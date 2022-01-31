@@ -35,7 +35,6 @@ body {
     cursor: default;
     background-color: var(--color-light-grey);
     height: 1000vh;
-
 }
 
 button{
@@ -43,7 +42,6 @@ button{
     cursor: pointer;
     border:none;
     outline: none;
-    width: 100%;
 }
 
 img {
@@ -252,6 +250,7 @@ main{
 /* feed content */
 .feed__picture{
     position: relative;
+    background-color: red;
 }
 
 
@@ -297,16 +296,117 @@ main{
     display: flex;
     height: auto;
     background-color: yellow;
+    position: relative;
 
 }
 
-.reaction__left{
-    display: flex; 
-}
-
-.reaction__left button{
+.feed__icon{
     padding: 8px;
+    width:40px;
+    height: 40px;
 }
+
+.feed__icon:last-child{
+    margin: 0px -10px 0px 426px;
+}
+
+.feed__icon i{
+    font-size: 22px;
+}
+
+/* ___외 00명이 좋아합니다. */
+.feed__likes{
+    padding: 0px 16px;
+    margin: 0px 0px 8px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.feed__likes__profile__container{
+    overflow: hidden;
+    display: inline;
+}
+
+.feed__likes__profile{
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+}
+
+.feed__likes__profile img{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    left: 16px;
+}
+
+.feed__likes__profile__continer span:nth-child(2){
+    transform: translateX(-50%);
+}
+
+.feed__likes__number{
+    font-size: 14px;
+}
+
+.feed__likes__number a:first-child{
+    margin: -5px;
+    padding: 5px;
+}
+
+.feed__likes__number a {
+    font-weight: 600;
+}
+
+/* 글 & 코멘트 */
+
+.feed__post-comment__container{
+    padding: 0px 16px;
+    font-size: 14px;
+}
+
+.feed__post__id{
+    font-weight: 600;
+}
+
+.feed__post__contenet{
+    overflow-wrap: break-word;
+    white-space: nowrap;
+}
+
+.feed__post__more button{
+    color: #8E8E8E;
+    padding: 0;
+}
+
+.feed__post, .feed__post__more-comments, .feed__comment{
+    margin-bottom: 4px;
+}
+
+.feed__post__more-comments a{
+    color: #8E8E8E;
+}
+
+.feed__comment{
+    display: flex;
+    justify-content: start;
+    align-content: stretch;
+}
+
+.feed__comment a{
+    font-weight: 600;
+}
+
+.feed__comment span{
+    overflow-wrap: break-word;
+}
+
+
+
+
+
+
+
 
 
 
