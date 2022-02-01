@@ -389,17 +389,28 @@ main{
 
 .feed__comment{
     display: flex;
-    justify-content: start;
-    align-content: stretch;
+    align-items: center;
 }
 
-.feed__comment a{
+.feed__comment__left{
+    display: flex;
+    justify-content: flex-start;
+    width: 556px;
+    background-color: aqua;
+    vertical-align: baseline;
+    line-height: 16px;
+}
+
+.feed__comment__left a{
     font-weight: 600;
+    margin: -5px;
+    padding: 0px 5px;
 }
 
-.feed__comment span{
+.feed__comment__left span{
     overflow-wrap: break-word;
 }
+
 
 
 
