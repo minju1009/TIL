@@ -411,6 +411,39 @@ main{
     overflow-wrap: break-word;
 }
 
+/* 댓글 창 */
+
+.feed__comment-form__container{
+    padding: 6px 16px;
+}
+
+.feed__comment-form form{
+    display: flex;
+}
+
+.feed__comment-form button:first-child{
+    padding: 8px 16px 8px 0;
+}
+
+.feed__comment-form button>i{
+    font-size: 22px;
+}
+
+.feed__comment-form input{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-style: none;
+}
+
+.feed__comment-form button:last-child{
+    padding: 0;
+    opacity: 0.3;
+    color: var(--color-blue);
+    display: inline-block;
+    width: auto;
+}
+
 
 
 
