@@ -92,12 +92,13 @@ main{
 
 
 .main__right{
-    left: 890px; 
-    position: fixed;
-    top: cal(34px+ 60px);
+    right: 0; 
+    position: sticky;
+    top: 50px;
     max-width: 293px;
     width: 100%;
     padding: 0px 0px 30px;
+    height: 100vh;
 }
 
 /* story */
@@ -328,6 +329,8 @@ main{
 .feed__likes__profile__container{
     overflow: hidden;
     display: inline;
+    position: relative;
+    width: 50px;
 }
 
 .feed__likes__profile{
@@ -336,11 +339,32 @@ main{
     overflow: hidden;
 }
 
+.feed__likes__profile:first-child{
+    position: relative;
+    z-index: 3;
+    top: 0;
+   
+}
+
+
+.feed__likes__profile:nth-child(2){
+    position: absolute;
+    left : 13px;
+    z-index: 2;
+}
+
+.feed__likes__profile:last-child{
+    position: absolute;
+    left : 26px;
+    z-index: 1;
+}
+
 .feed__likes__profile img{
     width: 20px;
     height: 20px;
     border-radius: 50%;
     left: 16px;
+    border: 2px solid white;
 }
 
 .feed__likes__profile__continer span:nth-child(2){
