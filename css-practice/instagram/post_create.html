@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="post_create.css">
+</head>
+<body>
+    <div class="post-create">
+        <div>
+            새 게시물 만들기
+        </div>
+        <div>
+            <img src="img/instagram-icon.png">
+        </div>
+        <div class="post-create__form">
+            <div class="profile">
+                <img src="img/mulan.webp">
+                <span>mulan</span>
+            </div>
+            <form>
+               <textarea type="submit" value="Create">
+               <button></button>
+               
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+<!--  
+{% extends "posts/base.html" %}
+
+{% block content %}
+
+<div class="post-create">
+    <div>
+        Create Post
+    </div>
+
+    <div class="form">
+        <form action="{% url 'posts:post_create' %}"
+                method="post"
+                enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Create">
+        </form>
+    </div>
+</div>
+
+{% endblock content %} 
+-->

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window-coordinates</title>
+    <style>
+        div{
+            width : 200px;
+            height: 200px;
+            background-color: grey;
+            margin : 10px;
+        }
+
+        div:nth-child(5){
+            background-color: violet;
+        }
+
+        span{
+            position: fixed;
+            top: 20px;
+            right: 30px;
+        }
+
+        button{
+            margin-right: 5px;
+            padding: 10px;
+            background-color: violet;
+            color: white;
+            border: 1px solid purple;
+        }
+
+        button:active{
+            background-color: purple;
+        }
+
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="special"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    
+    <!-- <aside></aside> 태그 안에 버튼을 넣어도 된다! -->
+    <span>
+    <button>Scroll by 100px(y)</button>
+    <button>Scroll to 100px(y)</button>
+    <button>Scroll into special</button>
+    </span>
+   
+    <script>
+        const boxes = document.querySelectorAll('div');
+        for(i=0; i<boxes.length; i++){
+            boxes[i].addEventListener('click', (event)=> {
+                console.log(`page x, y ${event.pageX}, ${event.pageY}`);
+                console.log(`client x, y ${event.clientX}, ${event.clientY}`); 
+            })
+        }
+
+        const scrollbyBtn = document.querySelector('button:first-child');
+        const scrolltoBtn = document.querySelector('button:nth-child(2)');
+        const scrolltoSpecialBtn = document.querySelector('button:last-child');
+        const specialbox = document.querySelector('.special');
+
+        scrollbyBtn.addEventListener('click', () => {
+            //window.scrollBy(0,100);
+            // 안에 오브젝트를 전달할 수도 있다.
+            window.scrollBy({top:100, left:0, behavior:"smooth"})
+        })
+
+        scrolltoBtn.addEventListener('click', () =>{
+            window.scrollTo(0,100);
+        })
+
+        scrolltoSpecialBtn.addEventListener('click', () => {
+            // 내가 한 방식 : window.scrollTo(0,specialbox.offsetTop);     
+            // 엘리가 한 방식 
+            specialbox.scrollIntoView({behavior:"smooth", block:"start"});      
+        })
+
+        window.addEventListener('beforeunload', () =>
+            console.log('you can use it on something like asking if the user really wants to get out of the page'))
+
+    </script>
+
+</body>
+</html>
