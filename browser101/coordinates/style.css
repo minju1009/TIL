@@ -3,15 +3,23 @@ body{
     color: white;
 }
 
+img{
+    position: absolute;
+}
+
+.coordinates{
+    position: absolute;
+}
+
 .row{
     background-color: white;
     height: 1px;
-    position : relative;
+    position: absolute;
 }
 
-.column{
+.column {
     background-color: white;
-    width : 1px;
-    position: relative;
-    left: 100px;
+    width: 1px;
+    position: absolute;
 }
+
