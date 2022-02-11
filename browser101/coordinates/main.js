@@ -13,6 +13,24 @@ const row = document.querySelector('.row');
 const column = document.querySelector('.column');
 
 
+//엘리님 스타일로 맞춰 다시 써보는 코드
+document.addEventListener('mousemove', (event) => {
+    const x = event.clientX;
+    const y = event.clientY;
+
+    column.style.left = `${x}px`;
+    row.style.top = `${y}px`;
+    target.style.top = `${y}px`;
+    target.style.left = `${x}px`;
+    numberbox.style.top = `${y}px`;
+    numberbox.style.left = `${x}px`;
+    numberbox.innerHTML = `${x}px, ${y}px`;    
+})
+
+
+
+
+/* 내가 작성한 코드
 function getCoordinates(event){
     const pageX = event.pageX;
     const pageY = event.pageY;
@@ -31,10 +49,5 @@ function getCoordinates(event){
 
 }
 
-function placeTarget(){
-    window.addEventListener('mouseover', getCoordinates);
-}
-
-document.addEventListener("DOMContentLoaded", getCoordinates);
-setInterval(placeTarget,100);
-
+window.addEventListener('mouseover', getCoordinates);
+*/
