@@ -1,0 +1,17 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+.row{
+    background-color: white;
+    height: 1px;
+    position : relative;
+}
+
+.column{
+    background-color: white;
+    width : 1px;
+    position: relative;
+    left: 100px;
+}
