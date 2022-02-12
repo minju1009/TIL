@@ -1,21 +1,17 @@
 body{
     background-color: black;
     color: white;
+    margin: 0;
 }
 
 img{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .coordinates{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(20px, 20px);
     font-size: 24px;
+    margin: 20px;
 }
 
 .row{
@@ -23,7 +19,6 @@ img{
     height: 1px;
     position: absolute;
     width: 100%;
-    top: 50%;
 }
 
 .column {
@@ -31,6 +26,5 @@ img{
     width: 1px;
     position: absolute;
     height: 100%;
-    left: 50%;
 }
 
