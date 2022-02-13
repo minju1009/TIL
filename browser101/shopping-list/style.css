@@ -1,0 +1,66 @@
+body{
+    background-image: url(/Users/kimminju/Desktop/TIL/TIL/browser101/shopping-list/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+.background{
+    background-color: #FFFFFF;
+    width: 40%;
+    color: #462572;
+    text-align: center;
+    margin: 40px auto;
+    border-radius: 40px;
+    padding: 40px;  
+}
+
+h1{
+    font-family:monospace;
+    padding: 20px;
+    margin: 0;
+    font-size: 40px;
+}
+
+ul{
+    list-style: none;
+    margin: 16px 8px;
+    padding: 0px 20px;
+}
+
+li{
+    border-bottom: 1px dashed #462572;
+    font-size: 25px;
+    color: black;
+    line-height: 40px;
+    text-align: start;
+}
+
+input{
+    font-size: 20px;
+    border: 0px;
+    padding: 0px ;
+    background-color: rgb(231, 227, 231);
+    line-height: 40px;
+    display: block;
+    width: 80%;
+    margin: 40px auto;
+}
+
+input:focus{
+    background-color: #462572;
+    color: whitesmoke;
+}
+
+button{
+    background-color: #462572;
+    border: none;
+    line-height: 40px;
+    color: whitesmoke;
+    font-weight: 500;
+}
+
+button:hover{
+    color: #A383FE;
+    background-color: rgb(231, 227, 231);
+}

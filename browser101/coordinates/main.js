@@ -33,9 +33,6 @@ document.addEventListener('mousemove', (event) => {
 })
 
 
-
-
-
 //엘리님 스타일로 맞춰 다시 써보는 코드 - version1 (top과 left이용하여 성능이 다소 떨어짐)
 /*
 document.addEventListener('mousemove', (event) => {
