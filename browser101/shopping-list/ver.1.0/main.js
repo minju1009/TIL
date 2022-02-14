@@ -7,11 +7,20 @@ const input = document.querySelector('input');
 const addBtn = document.querySelector('button');
 
 function handleSubmit(){
-    console.log('hello');
     const li = document.createElement('li');
     li.innerHTML = input.value;
     lists.appendChild(li);
     input.value="";
+
+    const btn = document.createElement('button');
+    btn.innerHTML = "❌";
+    btn.setAttribute("class","delete");
+    li.appendChild(btn);
+
+    const deleteBtn = document.querySelector('.delete');
+    deleteBtn.addEventListener("click", () => {
+        lists.removeChild(li);
+    });
 }
 
 addBtn.addEventListener('click',handleSubmit);
@@ -20,5 +29,6 @@ document.addEventListener('keydown', (event) => {
        handleSubmit();
    } 
 });
+
 
 

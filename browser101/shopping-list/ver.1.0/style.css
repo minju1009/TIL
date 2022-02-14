@@ -64,3 +64,8 @@ button:hover{
     color: #A383FE;
     background-color: rgb(231, 227, 231);
 }
+
+button.delete{
+    background-color: white;
+
+}
