@@ -1,6 +1,7 @@
 const items = document.querySelector('.items');
 const input = document.querySelector('.footer__input');
 const addBtn = document.querySelector('.footer__btn');
+const form = document.querySelector('.form-tag');
 
 // 플러스 버튼 눌렀을 때, 리스트 추가
 function onAdd(){
@@ -18,7 +19,8 @@ input.focus();
 }
 
 // 버튼 눌렀을 때, 이벤트 추가
-addBtn.addEventListener('click', () => {
+form.addEventListener('click', (event) => {
+    event.preventDefault();
     onAdd();
 })
 
@@ -67,11 +69,12 @@ id++;
 return itemRow;
 }
 
-input.addEventListener('keypress', (event)=>{
-    if(event.key ==='Enter'){
-        onAdd();
-    }
-})
+// 아래 부분 form tag로 한번에 처리해줌
+// input.addEventListener('keypress', (event)=>{
+//     if(event.key ==='Enter'){
+//         onAdd();
+//     }
+// })
 
 
 items.addEventListener('click', (event) => {
