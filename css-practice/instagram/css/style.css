@@ -309,6 +309,10 @@ main{
     height: 40px;
 }
 
+.red{
+    color:red;
+}
+
 .feed__icon:last-child{
     margin: 0px -10px 0px 426px;
 }
