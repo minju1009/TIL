@@ -1,5 +1,7 @@
 const playBtn = document.querySelector('.playbtn');
 const gameField = document.querySelector('.gamefield');
+const carrotCount = document.querySelector('.catched-carrot');
+let numOfCarrots = 10; 
 
 // create Items with class, src, z-index
 const createItems = (num, src, className, zIndex) => {
@@ -31,7 +33,6 @@ const placeRandomly = (itemarray, width, height) => {
 
 // Timer starts!
 const countdown = document.querySelector('.countdown')
-
 function startTimer(){
     let timeSecond = 10;
     paintTimer(timeSecond);
@@ -54,19 +55,17 @@ function startTimer(){
 }
 
 
-// count carrots
-const carrotCount = document.querySelector('.catched-carrot');
-function countCarrots(carrots){
-    carrotCount.innerHTML = carrots.length;
-    for(i = 0; i<carrots.length; i++){
-    carrots[i].addEventListener('click', (event) => {
+// addEventlistener to carrots and bugs
+function handleClick(event){
+    if(event.target.className === 'bug'){
+        playMusic('sound/bug_pull.mp3');
+        // loseGame();
+    }else if(event.target.className === 'carrot'){
         const clickedCarrot = event.target;
-        const indexOfClickedCarrot = carrots.indexOf(clickedCarrot);
-        carrots.splice(indexOfClickedCarrot,1);
-        carrotCount.innerHTML = carrots.length;
         gameField.removeChild(clickedCarrot);
-        playMusic('sound/carrot_pull.mp3');        
-    })
+        playMusic('sound/carrot_pull.mp3');
+        numOfCarrots = numOfCarrots-1
+        carrotCount.innerHTML = numOfCarrots;
     }
 }
 
@@ -86,8 +85,9 @@ playBtn.addEventListener('click',() => {
     placeRandomly(bugs, 50, 50);
     placeRandomly(carrots, 80, 80);
     startTimer();
-    countCarrots(carrots);
     playMusic('sound/bg.mp3');
+    carrotCount.innerHTML = numOfCarrots;
+    gameField.addEventListener('click', handleClick);
 })
 
 
