@@ -29,26 +29,71 @@ const placeRandomly = (itemarray, width, height) => {
     });
 };
 
+// Timer starts!
+const countdown = document.querySelector('.countdown')
+
+function startTimer(){
+    let timeSecond = 10;
+    paintTimer(timeSecond);
+    setInterval(() => {
+        timeSecond--;
+        paintTimer(timeSecond);
+        if(timeSecond <= 0){
+            stopCounting();
+        }
+    }, 1000);
+
+    function paintTimer(sec){
+        countdown.innerHTML = `00:${sec<10?'0':''}${sec}`;
+    }
+
+    function stopCounting(){
+        countdown.innerHTML = `00:00`;
+        countdown.style.backgroundColor = 'red';       
+    }
+}
+
+
+// count carrots
+const carrotCount = document.querySelector('.catched-carrot');
+function countCarrots(carrots){
+    carrotCount.innerHTML = carrots.length;
+    for(i = 0; i<carrots.length; i++){
+    carrots[i].addEventListener('click', (event) => {
+        const clickedCarrot = event.target;
+        const indexOfClickedCarrot = carrots.indexOf(clickedCarrot);
+        carrots.splice(indexOfClickedCarrot,1);
+        carrotCount.innerHTML = carrots.length;
+        gameField.removeChild(clickedCarrot);
+        playMusic('sound/carrot_pull.mp3');        
+    })
+    }
+}
+
+
+// play music
+function playMusic(source){
+    const music = new Audio(source);
+    music.play();
+}
+
+
+// **Click the start button!!!!**
 playBtn.addEventListener('click',() => {
     playBtn.innerHTML = `<i class="fa fa-solid fa-stop"></i>`;
     const bugs = createItems(10, 'img/bug.png', 'bug', 2);
     const carrots = createItems(10, 'img/carrot.png', 'carrot', 1);
     placeRandomly(bugs, 50, 50);
     placeRandomly(carrots, 80, 80);
-    // startTimer();
-    // countCarrots();
-    // playBgm();
+    startTimer();
+    countCarrots(carrots);
+    playMusic('sound/bg.mp3');
 })
 
-// Timer starts!
 
-const countdown = document.querySelector('.countdown')
 
-function startTimer(){
-    countdown.innerHTML = '10:00';
-}
 
-startTimer();
+
 
 
 
