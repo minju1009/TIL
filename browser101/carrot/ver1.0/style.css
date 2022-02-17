@@ -80,26 +80,23 @@ body{
     opacity : 0.6;
     width: 600px;
     height: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin: auto;
-    margin-top: 140px;
     border-radius: 30px;
     display: none;
-    position: fixed;
-    top: 280px;
-    left: 420px;
+    position: absolute;
+    top: 350px;
+    left: 200px;
     z-index: 5;
 }
 
 .replaybtn{
-    margin-bottom: 5px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
 }
 
 .game-result__text{
+    display: inline-block;
     color: white;
     font-size: 55px;
-    margin-bottom: 10px;
+    margin-left:150px;
 }

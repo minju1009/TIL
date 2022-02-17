@@ -1,7 +1,11 @@
 const playBtn = document.querySelector('.playbtn');
 const gameField = document.querySelector('.gamefield');
 const carrotCount = document.querySelector('.catched-carrot');
+const gameResultBox = document.querySelector('.game-result');
+const resultText = document.querySelector('.game-result__text');
 let numOfCarrots = 10; 
+let clickBug = 0;
+let result = 0;
 
 // create Items with class, src, z-index
 const createItems = (num, src, className, zIndex) => {
@@ -33,48 +37,48 @@ const placeRandomly = (itemarray, width, height) => {
 
 // Timer starts!
 const countdown = document.querySelector('.countdown')
-function startTimer(){
-    let timeSecond = 10;
-    paintTimer(timeSecond);
-    setInterval(() => {
+let timeSecond = 10;
+let interval;
+
+function startCountdown(){
+    interval = setInterval(()=>{
         timeSecond--;
         paintTimer(timeSecond);
-        if(timeSecond <= 0){
-            stopCounting();
-        }
     }, 1000);
-
-    function paintTimer(sec){
-        countdown.innerHTML = `00:${sec<10?'0':''}${sec}`;
-    }
-
-    function stopCounting(){
-        countdown.innerHTML = `00:00`;
-        countdown.style.backgroundColor = 'red';       
-    }
 }
 
+function paintTimer(sec){
+    if(sec <= 0){
+        countdown.innerHTML = `00:00`;
+        countdown.style.backgroundColor = 'red';
+    }else if(sec>0){
+        countdown.innerHTML = `00:${sec<10?'0':''}${sec}`;
+    }
+}
 
 // addEventlistener to carrots and bugs
 function handleClick(event){
     if(event.target.className === 'bug'){
-        playMusic('sound/bug_pull.mp3');
-        // loseGame();
+        bugMusic.play();
+        bgMusic.pause();
+        loseGame();
+        result = 1;
+
     }else if(event.target.className === 'carrot'){
+        carrotMusic.play();
         const clickedCarrot = event.target;
         gameField.removeChild(clickedCarrot);
-        playMusic('sound/carrot_pull.mp3');
         numOfCarrots = numOfCarrots-1
         carrotCount.innerHTML = numOfCarrots;
     }
 }
 
-
-// play music
-function playMusic(source){
-    const music = new Audio(source);
-    music.play();
-}
+// make music objects
+const bgMusic = new Audio('sound/bg.mp3');
+const alertMusic = new Audio('sound/alert.wav');
+const bugMusic = new Audio('sound/bug_pull.mp3');
+const carrotMusic = new Audio('sound/carrot_pull.mp3');
+const gameWinMusic = new Audio('sound/game_win.mp3');
 
 
 // **Click the start button!!!!**
@@ -84,14 +88,43 @@ playBtn.addEventListener('click',() => {
     const carrots = createItems(10, 'img/carrot.png', 'carrot', 1);
     placeRandomly(bugs, 50, 50);
     placeRandomly(carrots, 80, 80);
-    startTimer();
-    playMusic('sound/bg.mp3');
+    startCountdown();
+    paintTimer(timeSecond);
+    bgMusic.play();
     carrotCount.innerHTML = numOfCarrots;
     gameField.addEventListener('click', handleClick);
+    let gameResult = setInterval(()=>{
+        if(numOfCarrots === 0){
+            winGame();
+            clearInterval(gameResult);
+            result = 1;
+        }},15);   
+    setTimeout(()=>{
+        if(result <=0){
+            loseGame();
+        }
+    }, 10000);   
 })
 
+// lose game
+function loseGame(){
+    finishGame();
+    resultText.innerHTML = 'YOU LOSE👎';
+    alertMusic.play();
+}
 
+// win game
+function winGame(){
+    finishGame();
+    resultText.innerHTML = 'YOU WIN👍';
+    gameWinMusic.play();
+}
 
+function finishGame(){
+    clearInterval(interval);  
+    gameResultBox.style.display = 'block';  
+    bgMusic.pause(); 
+}
 
 
 
