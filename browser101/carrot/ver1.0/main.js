@@ -3,9 +3,21 @@ const gameField = document.querySelector('.gamefield');
 const carrotCount = document.querySelector('.catched-carrot');
 const gameResultBox = document.querySelector('.game-result');
 const resultText = document.querySelector('.game-result__text');
+const replayBtn = document. querySelector('.replaybtn');
+
 let numOfCarrots = 10; 
-let clickBug = 0;
 let result = 0;
+let started = false;
+
+playBtn.addEventListener('click', () => {
+    if(started){
+        stopPlaying();
+    }else{
+        startPlaying();
+    }   
+    started = !started;
+})
+
 
 // create Items with class, src, z-index
 const createItems = (num, src, className, zIndex) => {
@@ -81,31 +93,6 @@ const carrotMusic = new Audio('sound/carrot_pull.mp3');
 const gameWinMusic = new Audio('sound/game_win.mp3');
 
 
-// **Click the start button!!!!**
-playBtn.addEventListener('click',() => {
-    playBtn.innerHTML = `<i class="fa fa-solid fa-stop"></i>`;
-    const bugs = createItems(10, 'img/bug.png', 'bug', 2);
-    const carrots = createItems(10, 'img/carrot.png', 'carrot', 1);
-    placeRandomly(bugs, 50, 50);
-    placeRandomly(carrots, 80, 80);
-    startCountdown();
-    paintTimer(timeSecond);
-    bgMusic.play();
-    carrotCount.innerHTML = numOfCarrots;
-    gameField.addEventListener('click', handleClick);
-    let gameResult = setInterval(()=>{
-        if(numOfCarrots === 0){
-            winGame();
-            clearInterval(gameResult);
-            result = 1;
-        }},15);   
-    setTimeout(()=>{
-        if(result <=0){
-            loseGame();
-        }
-    }, 10000);   
-})
-
 // lose game
 function loseGame(){
     finishGame();
@@ -126,8 +113,33 @@ function finishGame(){
     bgMusic.pause(); 
 }
 
+let bugs = createItems(10, 'img/bug.png', 'bug', 2);
+let carrots = createItems(10, 'img/carrot.png', 'carrot', 1);
 
-
+// play game
+function playGame(){
+    playBtn.innerHTML = `<i class="fa fa-solid fa-stop"></i>`;
+    let paintbugs = "";
+    let paintcarrots = "";
+    paintbugs = placeRandomly(bugs, 50, 50);
+    paintcarrots = placeRandomly(carrots, 80, 80);
+    startCountdown();
+    paintTimer(timeSecond);
+    bgMusic.play();
+    carrotCount.innerHTML = numOfCarrots;
+    gameField.addEventListener('click', handleClick);
+    let gameResult = setInterval(()=>{
+        if(numOfCarrots === 0){
+            winGame();
+            clearInterval(gameResult);
+            result = 1;
+        }},15);   
+    setTimeout(()=>{
+        if(result <=0){
+            loseGame();
+        }
+    }, 10000);   
+}
 
 
 
