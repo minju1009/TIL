@@ -1,5 +1,7 @@
 'use strict';
 
+import PopUp from './popup.js'
+
 const CARROT_SIZE = 80;
 const CARROT_COUNT = 5;
 const BUG_COUNT = 5;
@@ -11,12 +13,10 @@ const gameBtn = document.querySelector('.game__button');
 const gameTimer = document.querySelector('.game__timer');
 const gameScore = document.querySelector('.game__score');
 
-const popUp = document.querySelector('.pop-up');
-const popUpText = document.querySelector('.pop-up__message');
-const popUpRefresh = document.querySelector('.pop-up__refresh');
+
 
 const carrotSound = new Audio('./sound/carrot_pull.mp3');
-const alertSound = new Audio('./sound/alert.mp3');
+const alertSound = new Audio('./sound/alert.wav');
 const bgSound = new Audio('./sound/bg.mp3');
 const bugSound = new Audio('./sound/bug_pull.mp3');
 const winSound = new Audio('./sound/game_win.mp3');
@@ -27,6 +27,13 @@ let started = false;
 let score = 0;
 let timer = undefined;
 
+const gameFinishBanner = new PopUp;
+
+
+gameFinishBanner.setClickListener(() => {
+    startGame();
+})
+
 
 field.addEventListener('click', onFieldClick);
 gameBtn.addEventListener('click', () => {
@@ -36,10 +43,7 @@ gameBtn.addEventListener('click', () => {
         startGame();
     }
 })
-popUpRefresh.addEventListener('click', () => {
-    startGame();
-    hidePopUp();
-})
+
 
 function startGame(){
     started = true;
@@ -54,7 +58,7 @@ function stopGame(){
     started = false;
     stopGameTimer();
     hideGameButton();
-    showPopUpWithText('REPLAY❓');
+    gameFinishBanner.showWithText('REPLAY❓');
     playSound(alertSound);
     stopSound(bgSound);
 }
@@ -69,7 +73,7 @@ function finishGame(win){
     }
     stopSound(bgSound);
     stopGameTimer();
-    showPopUpWithText(win? 'YOU WON 😉' : 'YOU LOST 💩');
+    gameFinishBanner.showWithText(win? 'YOU WON 😉' : 'YOU LOST 💩');
 }
 
 
@@ -89,14 +93,9 @@ function showTimerAndScore(){
     gameScore.style.visibility = 'visible';
 }
 
-function showPopUpWithText(text){
-    popUpText.innerText = text;
-    popUp.classList.remove('pop-up--hide');
-}
 
-function hidePopUp(){
-    popUp.classList.add('pop-up--hide');
-}
+
+
 
 function startGameTimer(){
     let remainingTimeSec = GAME_DURATION_SEC;
