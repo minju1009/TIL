@@ -42,6 +42,5 @@ userStorage.loginUser(
     },
     error =>{
         console.log('error');
-    }
-    
+    }    
 )
