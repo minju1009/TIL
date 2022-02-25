@@ -6,8 +6,81 @@
   --color-yellow: #fbbe28;
   --color-pink: #fd7f84;
   --color-light-grey: #dfdfdf;
+} 
+
+/* Universal */
+ul{
+  list-style: none;
+  color: black;
+  padding: 0;
+}
+
+img{
+  width: 40px;
+  height: 40px;
 }
 
 * {
   box-sizing: border-box;
 }
+
+body{
+  background-color: var(--color-black);
+  color: white;
+}
+
+.shoppingmall{
+  width: 400px;
+  position: relative;
+  text-align: center;
+  overflow: auto;
+  margin: auto;
+}
+
+.filter{
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.filter__color{
+  outline: none;
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+}
+
+.blue {
+  background-color: var(--color-blue);
+}
+
+.yellow{
+  background-color: var(--color-yellow);
+}
+
+.pink{
+  background-color: var(--color-pink);
+}
+
+.lists{
+  margin-top: 30px;
+}
+
+.lists__item{
+  display: flex;
+  align-items: center;  
+  padding: 5px;
+  margin: 8 px 0px;
+  background-color: var(--color-white);
+  border-radius: 3px;
+}
+
+.lists__item__img{  
+  margin: 0px 10px;
+}
+
+.lists__item__text{
+  margin-left: 10px;
+}
+
