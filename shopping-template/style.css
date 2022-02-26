@@ -41,6 +41,15 @@ body{
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  padding: 0px 5px;
+}
+
+.filter__img{
+  transition: 200ms ease-in-out;
+}
+
+.filter__img:hover{
+  transform: scale(1.2);
 }
 
 .filter__color{
@@ -49,6 +58,11 @@ body{
   font-weight: 400;
   border: none;
   cursor: pointer;
+  transition: 200ms ease-in-out;
+}
+
+.filter__color:hover{
+  transform: scale(1.2);
 }
 
 .blue {
@@ -71,7 +85,7 @@ body{
   display: flex;
   align-items: center;  
   padding: 5px;
-  margin: 8 px 0px;
+  margin: 8px 0px;
   background-color: var(--color-white);
   border-radius: 3px;
 }
