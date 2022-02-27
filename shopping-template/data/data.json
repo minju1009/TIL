@@ -1,0 +1,81 @@
+{
+    "items" : [
+        {
+            "color" : "blue", 
+            "type" : "t", 
+            "gender" : "man", 
+            "size" : "small",
+            "image":"../img/blue_p.png"
+        },  
+        {
+            "color" : "pink", 
+            "type" : "t", 
+            "gender" : "man", 
+            "size" : "large",
+            "image" : "../img/pink_t.png"
+
+        },
+        {
+            "color" : "yellow", 
+            "type" : "s", 
+            "gender" : "woman", 
+            "size" : "small",
+            "image" : "../img/yellow_s.png"
+        },
+        {
+            "color" : "blue", 
+            "type" : "p", 
+            "gender" : "woman", 
+            "size" : "medium",
+            "image" : "../img/blue_p.png"
+        },  
+        {
+            "color" : "pink", 
+            "type" : "p", 
+            "gender" : "man", 
+            "size" : "small",
+            "image" : "../img/pink_p.png"
+
+        },
+        {
+            "color" : "yellow", 
+            "type" : "t", 
+            "gender" : "woman", 
+            "size" : "small",
+            "image" : "../img/yellow_t.png"
+        },
+        {
+            "color" : "pink", 
+            "type" : "s", 
+            "gender" : "man", 
+            "size" : "large",
+            "image" : "../img/yellow_s.png"
+        },
+        {
+            "color" : "blue", 
+            "type" : "p", 
+            "gender" : "woman", 
+            "size" : "medium",
+            "image" : "../img/blue_p.png"
+        },  
+        {
+            "color" : "pink", 
+            "type" : "t", 
+            "gender" : "woman", 
+            "size" : "small",
+            "image" : "../img/pink_t.png"
+
+        },
+        {
+            "color" : "yellow", 
+            "type" : "t", 
+            "gender" : "woman", 
+            "size" : "small",
+            "image" : "../img/yellow_t.png"
+        }
+
+
+    ]
+
+}
+
