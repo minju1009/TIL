@@ -12,13 +12,25 @@ function displayItems(items){
 function createHTMLString(item){
     return `<li class="lists__item">
     <img src="${item.image}" class="lists__item__img" /> 
-    <span class="lists__item__text">${item.gender}, ${item.size}size</span>
+    <span class="lists__item__text">${item.gender}, ${item.size} size</span>
     </li>`;
 }
 
 function onButtonClick(event, items){
     console.log(event.target.dataset.key);
     console.log(event.target.dataset.value);
+    
+    const dataset = event.target.dataset;
+    const key = dataset.key;
+    const value = dataset.value;
+
+    if(key == null || value == null){
+        return;
+    }
+
+    const filtered = items.filter(item => item[key] === value);
+    console.log(filtered);
+    displayItems(filtered);
 }
 
 function setEventListeners(items){

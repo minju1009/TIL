@@ -98,3 +98,6 @@ body{
   margin-left: 10px;
 }
 
+h1{
+  cursor:pointer;
+}
