@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    width: 500px;
+    background-color: #EBEFF3;
+    height: 550px;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+.colorBox{
+    width: 85%;
+    height: 400px;
+    background-color: #709FB0;
+    margin: auto;
+    position: relative;
+    top: 40px;
+    border-radius: 12px;
+}
+
+.colorCode{
+    background-color: #568291;
+    color: white;
+    font-size: 20px;
+    padding: 5px 15px;
+    position: absolute;
+    bottom: 10px;
+    opacity: 0;
+}
+
+.colorBox:hover .colorCode{
+    opacity: 1;
+}
+
+.infos{
+  margin: 70px 40px 40px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 22px;
+}
+
+.infos__heartbtn{
+    font-size: 22px;
+    background-color: transparent;
+    padding: 10px;
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+   
+}
