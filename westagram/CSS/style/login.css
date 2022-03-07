@@ -1,4 +1,4 @@
-@import url(../style/common.css);
+@import url("../style/common.css");
 
 body{
     background-color: var(--color-grey);
@@ -42,7 +42,6 @@ body{
 }
 
 .loginForm__id:focus, .loginForm__pwd:focus{
-    outline: none;
     border-color: var(--color-dark-grey);
 }
 
