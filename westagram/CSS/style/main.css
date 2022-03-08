@@ -220,11 +220,11 @@ nav{
 }
 
 /* feed comments */
-.feed__comments{
+.feed__comment__item{
     padding: 2px 15px;
     position: relative;
 }
-.feed__comments .fa-heart{
+.feed__comment__item .fa-heart{
     position: absolute;
     right: 15px;
     font-size: 12px;
@@ -255,8 +255,12 @@ nav{
     opacity: 0.4;
     position: absolute;
     right: 15px;
-    top: 3px;
+    top: 6px;
     padding: 10px 0px;
+}
+
+.activate{
+    opacity: 1;
 }
 
 /* MAIN RIGHT */
@@ -272,12 +276,18 @@ nav{
 
 .id__container{
     padding: 10px;
+    width: 180px;
+
 }
 
 .avatar__description{
     color: var(--color-dark-grey);
     font-weight: 600;
     margin-top: 2px;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .story, .recommendations{
