@@ -21,20 +21,35 @@ newCommentContainer.addEventListener('keydown',() => {
 
 // Add New Comment
 const comments = document.querySelector('.feed__comments');
+let datanum = 2;
 
 function addComment(event){
     event.preventDefault();
     // const new_id = prompt("What's your id?")
     const comment = document.createElement('div');
     comment.className = "feed__comment__item"
+    comment.setAttribute('data-num', datanum);
     comment.innerHTML = 
         `<a href="#" class="avatar__id">new_id</a>
             <span>${newComment.value}</span>
-        <span>
-            <i class="fa-solid fa-heart"></i>
+        <span class="feed__comment__more">
+            <i class="fa-solid fa-x" data-num=${datanum}></i>
+            <i class="fa-regular fa-heart"></i>
         </span>`;
     comments.appendChild(comment);
     newComment.value="";
+    datanum++;
 }
 
 commentBtn.addEventListener('click', addComment);
+
+// delete Comment that is clicked
+comments.addEventListener('click', (event)=>{
+    const datanum = event.target.dataset.num;
+    console.log(datanum);
+    if(datanum){
+        const deletedComment = document.querySelector(`.feed__comment__item[data-num="${datanum}"]`)
+        deletedComment.remove();
+    }
+    
+})
