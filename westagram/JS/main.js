@@ -34,7 +34,7 @@ function addComment(event){
             <span>${newComment.value}</span>
         <span class="feed__comment__more">
             <i class="fa-solid fa-x" data-num=${datanum}></i>
-            <i class="fa-regular fa-heart"></i>
+            <i class="fa-regular fa-heart" data-like=${datanum}></i>
         </span>`;
     comments.appendChild(comment);
     newComment.value="";
@@ -46,10 +46,20 @@ commentBtn.addEventListener('click', addComment);
 // delete Comment that is clicked
 comments.addEventListener('click', (event)=>{
     const datanum = event.target.dataset.num;
-    console.log(datanum);
     if(datanum){
         const deletedComment = document.querySelector(`.feed__comment__item[data-num="${datanum}"]`)
         deletedComment.remove();
     }
-    
 })
+
+// make the heart full-red when clicked
+comments.addEventListener('click', (event)=>{
+    const likenum = event.target.dataset.like;
+    if(likenum){
+        const clickedHeartNum = document.querySelector(`.fa-heart[data-like="${likenum}"]`);
+        clickedHeartNum.classList.toggle(`red`);
+        clickedHeartNum.classList.toggle(`fa-solid`)
+    }
+})
+
+
