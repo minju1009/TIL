@@ -83,8 +83,9 @@ closeToggleBtn.addEventListener('click', ()=>{
 
 function showSearchResult(){
     let keyword = event.target.value;
-    const filteredArr = Users.filter(user => user.id.includes(keyword));
     searchResultBox.innerHTML = "";
+    const filteredArr = Users.filter(user => user.id.includes(keyword));
+   
     filteredArr.length > 0 ? createElement(filteredArr) : showNoResult();
 }
 
@@ -112,14 +113,21 @@ function showNoResult(){
 }
 
 function showToggle(){
-    searchToggleBox.classList.add('toggleOpen');
+    searchToggleBox.classList.add('visible');
     closeToggleBtn.classList.add('visible');
 }
 
 function hideToggle(){
     searchResultBox.innerHTML='';
-    searchToggleBox.classList.remove('toggleOpen');
+    searchToggleBox.classList.remove('visible');
     closeToggleBtn.classList.remove('visible');
     searchBar.value = '';
 }
 
+// show toggle when profile is clicked
+const profileBtn = document.querySelector('.navbar__moreFunctions .fa-user-large');
+const profileToggle = document.querySelector('.profileToggle');
+
+profileBtn.addEventListener('click', ()=>{
+    profileToggle.classList.toggle('show');
+})
