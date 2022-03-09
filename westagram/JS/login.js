@@ -6,7 +6,10 @@ function checkValidation(){
     const id = document.querySelector('.loginForm__id').value;
     const pwdLength = document.querySelector('.loginForm__pwd').value.length;
     const loginBtn = document.querySelector('.loginForm__submit');
-    id.includes('@') === true && pwdLength >= 5 ? loginBtn.classList.add('checked') : loginBtn.classList.remove('checked');
+    loginBtn.disabled = true;
+    id.includes('@') === true && pwdLength >= 5 ?  
+        (loginBtn.classList.add('checked') ?  : 
+        loginBtn.classList.remove('checked');  
 }
 
 

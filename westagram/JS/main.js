@@ -1,4 +1,7 @@
 'use strict';
+import {Users} from './user.js'
+console.log(Users)
+
 
 const newComment = document.querySelector('.feed__addComment__input')
 const commentBtn = document.querySelector('.feed__addComment__button');
@@ -61,5 +64,38 @@ comments.addEventListener('click', (event)=>{
         clickedHeartNum.classList.toggle(`fa-solid`)
     }
 })
+
+// search bar
+const searchBar = document.querySelector('.navbar__searchBar');
+const searchResultBox = document.querySelector('.searched__items');
+const searchToggleBox = document.querySelector('.searchToggle');
+searchBar.addEventListener('keyup', (event)=> {
+    searchToggleBox.classList.add('toggleOpen');
+    if(searchBar.value === ''){
+        searchResultBox.innerHTML='';
+        searchToggleBox.classList.remove('toggleOpen');
+    }else{
+    let keyword = event.target.value;
+    const filteredArr = Users.filter(user => user.id.includes(keyword));
+    searchResultBox.innerHTML = "";
+    createElement(filteredArr); 
+}});
+
+function createElement(filteredArr){
+    filteredArr.forEach(user => {
+        const avatar = document.createElement('div');
+        avatar.setAttribute('class', 'searched__items__item');
+        avatar.innerHTML =` 
+            <div class="img__container">
+                <img class="avatar__img" src=${user.src} alt="">
+            </div>   
+            <div class="id__container">
+                <div class="avatar__id">${user.id}</div>
+                <div class="avatar__description">${user.description}</div>
+            </div>`;
+        searchResultBox.appendChild(avatar);
+    });
+}
+
 
 
