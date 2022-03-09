@@ -1,7 +1,5 @@
 'use strict';
 import {Users} from './user.js'
-console.log(Users)
-
 
 const newComment = document.querySelector('.feed__addComment__input')
 const commentBtn = document.querySelector('.feed__addComment__button');
@@ -69,17 +67,26 @@ comments.addEventListener('click', (event)=>{
 const searchBar = document.querySelector('.navbar__searchBar');
 const searchResultBox = document.querySelector('.searched__items');
 const searchToggleBox = document.querySelector('.searchToggle');
+const closeToggleBtn = document.querySelector('.fa-circle-xmark');
+
 searchBar.addEventListener('keyup', (event)=> {
-    searchToggleBox.classList.add('toggleOpen');
-    if(searchBar.value === ''){
-        searchResultBox.innerHTML='';
-        searchToggleBox.classList.remove('toggleOpen');
+    showToggle();
+    if(event.key === 'Escape' || searchBar.value === ''){
+        hideToggle();
     }else{
+        showSearchResult();
+}});
+
+closeToggleBtn.addEventListener('click', ()=>{
+    hideToggle();
+})
+
+function showSearchResult(){
     let keyword = event.target.value;
     const filteredArr = Users.filter(user => user.id.includes(keyword));
     searchResultBox.innerHTML = "";
-    createElement(filteredArr); 
-}});
+    filteredArr.length > 0 ? createElement(filteredArr) : showNoResult();
+}
 
 function createElement(filteredArr){
     filteredArr.forEach(user => {
@@ -97,5 +104,22 @@ function createElement(filteredArr){
     });
 }
 
+function showNoResult(){
+    const noResult = document.createElement('div');
+    noResult.innerHTML = "검색 결과가 없습니다.";
+    noResult.setAttribute('class', 'searched__noResult');
+    searchResultBox.appendChild(noResult);
+}
 
+function showToggle(){
+    searchToggleBox.classList.add('toggleOpen');
+    closeToggleBtn.classList.add('visible');
+}
+
+function hideToggle(){
+    searchResultBox.innerHTML='';
+    searchToggleBox.classList.remove('toggleOpen');
+    closeToggleBtn.classList.remove('visible');
+    searchBar.value = '';
+}
 

@@ -83,7 +83,7 @@ nav{
 
 .navbar__searchBar{
     width: 250px;
-    padding: 10px 35px;
+    padding: 10px 40px;
     border: none;
     border-radius: 3px;
     background-color:#EFEFEF;
@@ -377,7 +377,7 @@ nav{
     border: 1px solid var(--color-border-grey);
     width: 270px;
     height: 250px;
-    position: absolute;
+    position: fixed;
     z-index: 5;
     top: 64px;
     left: 575px;
@@ -405,4 +405,25 @@ nav{
 
 .toggleOpen{
     opacity: 1;
+}
+
+.searched__noResult{
+    font-size: 14px;
+    color: var(--color-dark-grey);
+    font-weight: 600;
+    text-align: center;
+    margin-top: 105px;
+}
+
+.fa-circle-xmark{
+    position: absolute;
+    right: 43px;
+    top: 10px;
+    font-size: 14px;
+    color: var(--color-dark-grey);
+    visibility: hidden;
+}
+
+.visible{
+    visibility: visible;
 }
