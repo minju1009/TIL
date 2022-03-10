@@ -1,50 +1,46 @@
 'use strict';
-import {Users} from './user.js'
+// import {Users} from './user.js'
 
-const newComment = document.querySelector('.feed__addComment__input')
+const newCommentContainer = document.querySelector('.feed__addComment__input')
 const commentBtn = document.querySelector('.feed__addComment__button');
 commentBtn.disabled = true;
 
 // Activate post button
-const newCommentContainer = document.querySelector('.feed__addComment');
-
-newCommentContainer.addEventListener('keydown',() => {
-    const newCommentLength = newComment.value.length;
-    if(newCommentLength >= 1){
+newCommentContainer.addEventListener('keyup',() => {
+    const newComment= newCommentContainer.value;
+    if(newComment){
         commentBtn.classList.add('activate');
         commentBtn.disabled = false;
     }else{
         commentBtn.classList.remove('activate');
         commentBtn.disabled = true;
     }
-});
+})
 
 
 // Add New Comment
 const comments = document.querySelector('.feed__comments');
 let datanum = 2;
-
-function addComment(event){
+const addComment = (event) => {
     event.preventDefault();
-    // const new_id = prompt("What's your id?")
     const comment = document.createElement('div');
     comment.className = "feed__comment__item"
     comment.setAttribute('data-num', datanum);
     comment.innerHTML = 
         `<a href="#" class="avatar__id">new_id</a>
-            <span>${newComment.value}</span>
+            <span>${newCommentContainer.value}</span>
         <span class="feed__comment__more">
             <i class="fa-solid fa-x" data-num=${datanum}></i>
             <i class="fa-regular fa-heart" data-like=${datanum}></i>
         </span>`;
     comments.appendChild(comment);
-    newComment.value="";
+    newCommentContainer.value="";
     datanum++;
 }
-
 commentBtn.addEventListener('click', addComment);
 
-// delete Comment that is clicked
+
+// Mission 6 :delete Comment with the 'x' button
 comments.addEventListener('click', (event)=>{
     const datanum = event.target.dataset.num;
     if(datanum){
@@ -53,7 +49,7 @@ comments.addEventListener('click', (event)=>{
     }
 })
 
-// make the heart full-red when clicked
+// Mission 6 : make the heart full-red when clicked
 comments.addEventListener('click', (event)=>{
     const likenum = event.target.dataset.like;
     if(likenum){
@@ -63,11 +59,54 @@ comments.addEventListener('click', (event)=>{
     }
 })
 
-// search bar
+// Mission 7 : id search bar
+const Users = [
+    {
+        id: "wecode_bootcamp",
+        description: ">wecode | 위코드",
+        src: "../IMG/wecode.png"
+      },
+      {
+        id: "wecode_founder",
+        description: "송은우 (Eun Woo Song)",
+        src: "../IMG/wecodeFounder.png"
+      },
+      {
+        id: "wecode_git",
+        description: "",
+        src: "../IMG/wecodegit.png"
+      },
+      {
+        id: "wecode_korea",
+        description: "강남구 테헤란로 427, 서울",
+        src: "../IMG/noimage.jpeg"
+      },
+      {
+        id: "mjuuu.k",
+        description: "Front-end developer",
+        src: "../IMG/wecode.png"
+      },
+      {
+        id: "mjuu.b",
+        description: "love cooking",
+        src: "../IMG/wecode.png"
+      },
+      {
+        id: "nyangwe",
+        description: "nyangnyang We",
+        src: "../IMG/wecode.png"
+      },
+      {
+        id: "dangdang_we",
+        description: "DangDang We",
+        src: "../IMG/wecode.png"
+      },
+]
+
 const searchBar = document.querySelector('.navbar__searchBar');
 const searchResultBox = document.querySelector('.searched__items');
-const searchToggleBox = document.querySelector('.searchToggle');
-const closeToggleBtn = document.querySelector('.fa-circle-xmark');
+const searchResultContainer = document.querySelector('.searchToggle');
+const closeSearchBtn = document.querySelector('.fa-circle-xmark');
 
 searchBar.addEventListener('keyup', (event)=> {
     showToggle();
@@ -77,7 +116,7 @@ searchBar.addEventListener('keyup', (event)=> {
         showSearchResult();
 }});
 
-closeToggleBtn.addEventListener('click', ()=>{
+closeSearchBtn.addEventListener('click', ()=>{
     hideToggle();
 })
 
@@ -85,7 +124,6 @@ function showSearchResult(){
     let keyword = event.target.value;
     searchResultBox.innerHTML = "";
     const filteredArr = Users.filter(user => user.id.includes(keyword));
-   
     filteredArr.length > 0 ? createElement(filteredArr) : showNoResult();
 }
 
@@ -113,21 +151,28 @@ function showNoResult(){
 }
 
 function showToggle(){
-    searchToggleBox.classList.add('visible');
-    closeToggleBtn.classList.add('visible');
+    searchResultContainer.classList.add('visible');
+    closeSearchBtn.classList.add('visible');
 }
 
 function hideToggle(){
     searchResultBox.innerHTML='';
-    searchToggleBox.classList.remove('visible');
-    closeToggleBtn.classList.remove('visible');
+    searchResultContainer.classList.remove('visible');
+    closeSearchBtn.classList.remove('visible');
     searchBar.value = '';
 }
 
-// show toggle when profile is clicked
+// Mission 8 : show profile options when navbar's profile picture is clicked
 const profileBtn = document.querySelector('.navbar__moreFunctions .fa-user-large');
-const profileToggle = document.querySelector('.profileToggle');
+const profileOptions = document.querySelector('.profileOptions');
+const overlay = document.querySelector('.overlay');
 
 profileBtn.addEventListener('click', ()=>{
-    profileToggle.classList.toggle('show');
+    profileOptions.classList.add('show');
+    overlay.classList.add('active');
+})
+
+overlay.addEventListener('click', () =>{
+    overlay.classList.remove('active');
+    profileOptions.classList.remove('show');
 })
