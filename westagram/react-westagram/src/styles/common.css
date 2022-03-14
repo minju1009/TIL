@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans+KR:wght@300;400&family=Open+Sans:wght@400;600&family=Poppins:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap');
+
+button, a{
+    cursor: pointer;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+input:focus{
+    outline:none;
+}
+
+/* Universal */
+:root{
+    --color-grey : #FAFAFA;
+    --color-blue : #0095F6;
+    --color-navy : #385085;
+    --color-black : black;
+    --color-white : white;
+    --color-border-grey : #dbdbdb;
+    --color-dark-grey : #a0a0a0;
+
+    --font-small : 8px;
+    --font-regular : 16px;
+    --font-medium : 32px;
+    --font-large :48px;
+    --font-xlarge : 56px;
+
+    --font-weight-bold: 600;
+
+}

@@ -1,0 +1,105 @@
+/* Feed */
+.feed{
+    border: 1px solid var(--color-border-grey);
+    background-color: white;
+    margin-bottom: 30px;
+}
+
+/* Feed Header */
+.feed__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+}
+
+.feed__header__left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feed__header__left .avatar__id{
+    padding-left: 10px;
+}
+
+.feed__image__container{
+    height: 600px;
+}
+
+.feed__image__container img{
+    width: 100%;
+    height: 100%;
+}
+
+/* Feed Reaction icons*/
+.feed__reaction{
+    padding: 10px 15px 5px;    
+}
+
+.feed__reaction__icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+}
+
+.feed__reaction__icons__left i{
+    margin-right: 10px;
+}
+
+.feed__reaction__likes{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.feed__reaction__likes .img__container{
+    width: 25px;
+    height: 25px;
+}
+
+.feed__reaction__likes span{
+    margin-left: 5px;
+}
+
+/* feed post content*/
+.feed__post{
+    padding: 0px 15px;
+}
+
+.feed__post button{
+    color: var(--color-dark-grey);
+}
+
+/* feed comments */
+.feed__comment__item{
+    position: relative; 
+    padding: 2px 15px;
+}
+.feed__comment__reactions{
+    position: absolute;
+    right: 15px;
+    font-size: 12px;
+}
+
+.feed__comment__reactions .fa-x{
+    display: none;
+    margin-right: 3px;
+    font-size: 10px;
+}
+
+.feed__comment__item:hover .fa-x{
+    display: inline-block;
+}
+
+.red{
+    color: red;
+}
+
+.feed__postTime{
+    margin: 8px 0px;
+    padding: 0px 15px;
+    font-size: 12px;
+    color: var(--color-dark-grey);
+}
